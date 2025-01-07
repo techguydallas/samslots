@@ -528,7 +528,12 @@
           'Content-Type': 'application/json'
         }
       })
-      .then(response => response.text())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
       .then(message => {
         alert('Thank you for submitting your details! We will contact you soon.');
       })
