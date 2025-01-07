@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAM SLOTS</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    h1, h2 {
+      color: #ffd700;
+    }
+
+    a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Full-Screen Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(45deg, #0f0c29, #302b63);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin: 0;
+      animation: glow 2s infinite alternate;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+    .hero .cta-button {
+      background: #ffd700;
+      color: #1a1a1a;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .hero .cta-button:hover {
+      background: #ffcc00;
+      transform: scale(1.1);
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
+      }
+      to {
+        text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700;
+      }
+    }
+
+    /* Games Section */
+    .games {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 50px 20px;
+      background: #2c2c2c;
+    }
+
+    .game-card {
+      background: #1a1a1a;
+      border: 1px solid #444;
+      border-radius: 10px;
+      margin: 20px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+
+    .game-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .game-card h3 {
+      margin: 10px 0;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f0c29;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      margin: 0 10px;
+    }
+
+    /* Particle Background */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Player Data Form */
+    .player-form {
+      background: #2c2c2c;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .player-form input {
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .player-form button {
+      background: #ffd700;
+      color: #1a1a1a;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .player-form button:hover {
+      background: #ffcc00;
+      transform: scale(1.1);
+    }
+  </style>
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- GSAP Library for Advanced Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <h1 id="sam-slots">SAM SLOTS</h1>
+      <p id="hero-subtitle">Your Ultimate Gaming Destination</p>
+      <button class="cta-button" id="explore-games">Explore Games</button>
+    </div>
+  </section>
+
+  <!-- Games Section -->
+  <section class="games" id="games-section">
+    <div class="game-card">
+      <img src="https://via.placeholder.com/250" alt="JUWA">
+      <h3>JUWA</h3>
+      <p>Spin and win big with our classic slot machine!</p>
+    </div>
+    <div class="game-card">
+      <img src="https://via.placeholder.com/250" alt="GAMEVAULT">
+      <h3>GAMEVAULT</h3>
+      <p>Beat the dealer and win exciting rewards!</p>
+    </div>
+    <div class="game-card">
+      <img src="https://via.placeholder.com/250" alt="FIREKIRIN">
+      <h3>FIREKIRIN</h3>
+      <p>Place your bets and let the wheel decide your fate!</p>
+    </div>
+    <div class="game-card">
+      <img src="https://via.placeholder.com/250" alt="ORIONSTARS">
+      <h3>ORIONSTARS</h3>
+      <p>Show off your skills and win big at the poker table!</p>
+    </div>
+    <div class="game-card">
+      <img src="https://via.placeholder.com/250" alt="MILKYWAY">
+      <h3>MILKYWAY</h3>
+      <p>Experience the elegance of this classic card game!</p>
+    </div>
+    <div class="game-card">
+      <img src="https://via.placeholder.com/250" alt="ULTRAPANDA">
+      <h3>ULTRAPANDA</h3>
+      <p>Roll the dice and test your luck!</p>
+    </div>
+    <div class="game-card">
+      <img src="https://via.placeholder.com/250" alt="VEGAS SWEEPS">
+      <h3>VEGAS SWEEPS</h3>
+      <p>Pick your numbers and win big!</p>
+    </div>
+    <div class="game-card">
+      <img src="https://via.placeholder.com/250" alt="PANDA MASTER">
+      <h3>PANDA MASTER</h3>
+      <p>Enjoy the thrill of this classic game!</p>
+    </div>
+  </section>
+
+  <!-- Player Data Form -->
+  <section class="player-form">
+    <h2>Stay Connected!</h2>
+    <p>Provide your details to stay updated:</p>
+    <form id="player-data-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="tel" placeholder="Your Phone Number" required>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 SAM SLOTS. All rights reserved.</p>
+    <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+  </footer>
+
+  <!-- Particles.js Script -->
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: '#ffffff'
+        },
+        shape: {
+          type: 'circle'
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: {
+            enable: false,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: false,
+            speed: 40,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#ffffff',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 6,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: {
+            enable: true,
+            mode: 'repulse'
+          },
+          onclick: {
+            enable: true,
+            mode: 'push'
+          },
+          resize: true
+        },
+        modes: {
+          repulse: {
+            distance: 100,
+            duration: 0.4
+          },
+          push: {
+            particles_nb: 4
+          }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Smooth Scroll to Games Section
+    document.getElementById('explore-games').addEventListener('click', () => {
+      document.getElementById('games-section').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Player Data Form Submission
+    document.getElementById('player-data-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for submitting your details! We will contact you soon.');
+      // You can add code here to send the data to a server or store it locally.
+    });
+
+    // GSAP Animations for Hero Section
+    gsap.from("#sam-slots", {
+      duration: 2,
+      y: -100,
+      opacity: 0,
+      scale: 0.5,
+      ease: "power4.out",
+      delay: 0.5,
+    });
+
+    gsap.from("#hero-subtitle", {
+      duration: 1.5,
+      y: 50,
+      opacity: 0,
+      ease: "power3.out",
+      delay: 1.5,
+    });
+
+    gsap.from(".cta-button", {
+      duration: 1,
+      y: 50,
+      opacity: 0,
+      ease: "power3.out",
+      delay: 2,
+    });
+
+    // GSAP Animations for Game Cards
+    gsap.from('.game-card', {
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+      duration: 1,
+      scrollTrigger: {
+        trigger: '.games',
+        start: 'top 80%',
+      },
+    });
+
+    // AI Voice Welcome Message with Cute Girl Voice
+    function speakWelcomeMessage() {
+      const message = new SpeechSynthesisUtterance();
+      message.text = "Welcome to SAM SLOTS! Get ready to spin, win, and have the time of your life. Explore our exciting games and let the fun begin!";
+      message.volume = 1; // Volume (0 to 1)
+      message.rate = 1;   // Speed (0.1 to 10)
+      message.pitch = 1.2;  // Pitch (0 to 2) - Slightly higher for a cute voice
+
+      // Find a cute girl voice
+      const voices = speechSynthesis.getVoices();
+      const cuteGirlVoice = voices.find(voice => 
+        voice.name.includes("Google UK English Female") || 
+        voice.name.includes("Microsoft Zira Desktop")
+      );
+
+      if (cuteGirlVoice) {
+        message.voice = cuteGirlVoice; // Set the cute girl voice
+      }
+
+      speechSynthesis.speak(message);
+    }
+
+    // Trigger AI Voice on Page Load
+    window.onload = () => {
+      // Wait for voices to be loaded
+      speechSynthesis.onvoiceschanged = () => {
+        speakWelcomeMessage();
+      };
+    };
+  </script>
+</body>
+</html>
