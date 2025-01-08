@@ -393,7 +393,7 @@
   <section class="player-form">
     <h2>Stay Connected!</h2>
     <p>Provide your details to stay updated:</p>
-    <form id="player-data-form">
+    <form id="player-data-form" action="https://formspree.io/f/mkggpazd" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <input type="tel" name="phone" placeholder="Your Phone Number" required>
@@ -509,38 +509,32 @@
     });
 
     // Player Data Form Submission
-    document.getElementById('player-data-form').addEventListener('submit', (e) => {
+    document.getElementById('player-data-form').addEventListener('submit', async (e) => {
       e.preventDefault();
 
       // Get form data
       const formData = new FormData(e.target);
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone')
-      };
 
-      // Send data to Google Sheets
-      fetch('https://script.google.com/macros/s/AKfycbxqYzTgazEGUqWcNeKnB2S-VG9-H6eUErCMkVq9FFQA2DGy4TYACCqNJdFap_sqMXjT/exec', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
+      // Send data to Formspree
+      try {
+        const response = await fetch(e.target.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          alert('Thank you for submitting your details! We will contact you soon.');
+          e.target.reset(); // Clear the form
+        } else {
+          throw new Error('Something went wrong. Please try again.');
         }
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.text();
-      })
-      .then(message => {
-        alert('Thank you for submitting your details! We will contact you soon.');
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error:', error);
         alert('Something went wrong. Please try again.');
-      });
+      }
     });
 
     // GSAP Animations for Hero Section
